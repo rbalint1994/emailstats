@@ -15,9 +15,20 @@ const resetButton = document.querySelector("button[type='reset']")
 openratePara.classList.add("resultstyle")
     ctrPara.classList.add("resultstyle")
     ctorPara.classList.add("resultstyle")
+    
+const removeResults = () => {
+    openratePara.textContent = "";
+    ctrPara.textContent = "";
+    ctorPara.textContent = "";
+    openratePara.remove();
+    ctrPara.remove();
+    ctorPara.remove();
+}
+
 
 form.addEventListener("submit", function(event){
     event.preventDefault();
+    removeResults()
     emailStats = Array.from(document.querySelectorAll("#emailstats input"))
     .reduce((acc, input) => ({...acc,[input.id]: input.value}),{});   
    
@@ -26,19 +37,11 @@ form.addEventListener("submit", function(event){
     openratePara.append(`Openrate: ${(emailStats.read / emailStats.sent * 100).toFixed(2)}%`)
     ctrPara.append(`CTR (click through rate): ${(emailStats.click / emailStats.sent * 100).toFixed(2)}%`)
     ctorPara.append(`CTOR (click to open rate): ${(emailStats.click / emailStats.read * 100).toFixed(2)}%`)
-    
-
 })
 
-form.addEventListener("reset", ()=>{
-    openratePara.textContent = "";
-    ctrPara.textContent = "";
-    ctorPara.textContent = "";
-    openratePara.remove();
-    ctrPara.remove();
-    ctorPara.remove();
-    
-})
+form.addEventListener("reset", removeResults)
+
+
 
 
 
