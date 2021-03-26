@@ -103,9 +103,6 @@ button:focus{
     background: #cf3a3a;
 }
 
-.results{
-  
-}
 
 .resultstyle {
     display: flex;
@@ -113,7 +110,7 @@ button:focus{
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     color: whitesmoke;
     background-color: #D67D39;
     padding: 15px 5px;
@@ -126,8 +123,8 @@ button:focus{
 }
 
 .resultstyle:hover{
-    transform: scale(1.02);
-    cursor: pointer;
+    transform: scale(0.97);
+
 }
 
 @keyframes fade {
